@@ -29,15 +29,15 @@ bool DependenciesManager::isDependencyMet(int dependency) {
 }
 
 void DependenciesManager::addDependency(int dependency) {
-    std::map<int, bool>::const_iterator cit = dependencies.find(dependency);
-    if (cit != dependencies.end() && !cit->second) {
-        cit->second = true;
+    std::map<int, bool>::iterator it = dependencies.find(dependency);
+    if (it != dependencies.end() && !it->second) {
+        it->second = true;
     }
 }
 
 void DependenciesManager::removeDependency(int dependency) {
-    std::map<int, bool>::const_iterator cit = dependencies.find(dependency);
-    if (cit != dependencies.end() && cit->second) {
-        cit->second = false;
+    std::map<int, bool>::iterator it = dependencies.find(dependency);
+    if (it != dependencies.end() && it->second) {
+        it->second = false;
     }
 }

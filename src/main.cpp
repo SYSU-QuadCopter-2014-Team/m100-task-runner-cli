@@ -16,6 +16,7 @@ int main(/*int argc, char *argv[]*/) {
 
     DependenciesManager dependenciesManager;
     CommandsManager commandsManager;
+    Sdk sdk;
 
     while (!shouldQuit) {
         std::cout << "(runner) ";
@@ -34,7 +35,7 @@ int main(/*int argc, char *argv[]*/) {
             }
 
             // Commands with task
-            commandsManager.runTask(shortCut, name, arguments, dependenciesManager);
+            commandsManager.runTask(shortCut, name, arguments, dependenciesManager, sdk);
         } else {
             std::cout << "Invalid input!" << std::endl;
         }

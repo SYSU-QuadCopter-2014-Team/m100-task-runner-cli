@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "dependenciesmanager.h"
+#include "sdk.h"
 
 class AbstractCommand {
 public:
@@ -21,7 +22,7 @@ public:
 
     virtual bool isDependenciesMet(DependenciesManager &) = 0;
 
-    virtual bool runTask() = 0;
+    virtual bool runTask(const std::vector<std::string> &arguments, DependenciesManager &, Sdk &) = 0;
 };
 
 #endif // COMMAND_H

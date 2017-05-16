@@ -9,13 +9,14 @@
 #include <string>
 #include "dependenciesmanager.h"
 #include "abstractcommand.h"
+#include "sdk.h"
 
 class CommandsManager {
 public:
     CommandsManager();
     AbstractCommand * getCommandByName(const std::string & name);
     std::vector<AbstractCommand*> getAllCommands();
-    void runTask(const char &shortCut, const std::string &name, const std::vector<std::string> &arguments, DependenciesManager & dependenciesManager);
+    void runTask(const char &shortCut, const std::string &name, const std::vector<std::string> &arguments, DependenciesManager & dependenciesManager, Sdk & sdk);
 
 private:
     std::vector<AbstractCommand *> commands;

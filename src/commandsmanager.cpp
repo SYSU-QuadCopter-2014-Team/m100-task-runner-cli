@@ -3,6 +3,7 @@
 //
 
 #include <set>
+#include <iostream>
 #include "commandsmanager.h"
 #include "commands.h"
 
@@ -43,15 +44,18 @@ AbstractCommand *CommandsManager::getCommandByName(const std::string &name) {
 }
 
 void CommandsManager::runTask(const char &shortCut, const std::string &name, const std::vector<std::string> &arguments,
-                              DependenciesManager &dependenciesManager) {
+                              DependenciesManager &dependenciesManager, Sdk & sdk) {
+    std::cout << "Running task " << name << " with arguments: ";
+    for (auto argument : arguments) std::cout << argument << " ";
+    std::cout << std::endl;
     AbstractCommand * command = nullptr;
     for (auto c : commands) {
         if (c->getShortCut() == shortCut || c->getName() == name) {
             command = c;
         }
     }
-    if (command != nullptr) {
-        command->runTask();
+    if (command != nullptr && command->isDependenciesMet(dependenciesManager)) {
+        command->runTask(arguments, dependenciesManager, sdk);
     }
 }
 
