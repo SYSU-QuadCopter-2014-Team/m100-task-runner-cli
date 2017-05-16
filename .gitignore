@@ -10,3 +10,6 @@ CTestTestfile.cmake
 
 # Qt Creator
 CMakeLists.txt.user
+
+# IDEA IDEs
+/.idea

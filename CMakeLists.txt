@@ -30,7 +30,11 @@ if(USE_PRECISION_MISSIONS)
   include_directories("${PRECISION_MISSIONS_DEPENDENCIES_DIR}/csv")
 endif()
 
-set(BLOCKING_LINK_LIBRARIES djiosdk-core djiosdk-platform djiosdk-wrapper)
+if(NOT ${CMAKE_SYSTEM} MATCHES "^Linux.+ARCH$")
+  set(BLOCKING_LINK_LIBRARIES djiosdk-core djiosdk-platform djiosdk-wrapper)
+else()
+  message(WARNING "Arch Linux is not supported")
+endif()
 
 if(LIDAR_LOGGING)
   set(BLOCKING_LINK_LIBRARIES ${BLOCKING_LINK_LIBRARIES} vlp16lidar-driver)
