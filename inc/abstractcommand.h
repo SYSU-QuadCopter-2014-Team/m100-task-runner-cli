@@ -20,7 +20,7 @@ public:
 
     virtual std::string getHelp() = 0;
 
-    virtual bool isDependenciesMet(DependenciesManager &) = 0;
+    virtual bool isDependenciesMet(DependenciesManager &);
 
     virtual bool runTask(const std::vector<std::string> &arguments, DependenciesManager &, Sdk &) = 0;
 };

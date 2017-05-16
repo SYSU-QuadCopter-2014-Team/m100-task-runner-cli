@@ -36,3 +36,7 @@ bool AbstractCommand::parseLine(const std::string & line, char &shortCut, std::s
         name = first;
     }
 }
+
+bool AbstractCommand::isDependenciesMet(DependenciesManager &) {
+    return true;
+}
