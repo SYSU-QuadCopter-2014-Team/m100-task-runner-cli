@@ -3,6 +3,8 @@
 //
 
 #include "commands.h"
+#include "hellocommand.h"
 
 void Commands::registerCommands(std::vector <AbstractCommand*> & commands) {
+    commands.push_back(new HelloCommand);
 }
